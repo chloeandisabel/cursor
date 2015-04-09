@@ -85,8 +85,11 @@ module.exports =
         batched = false
         update data, silent
 
-
-
+      shallowMerge: (data) ->
+       @batched =>
+         for k,v of data 
+           @set([k], v) 
+           
     undo = ->
       return unless undos.length > 0
       redos.push data
