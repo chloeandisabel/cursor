@@ -5,6 +5,8 @@ Cache = require './cache'
 
 module.exports =
 
+  Cursor: class Cursor
+
   create: (inputData, onChange, historySize = 100) ->
     cache = new Cache
     data = deepFreeze inputData
@@ -14,7 +16,7 @@ module.exports =
 
 
     # declare cursor class w/ access to mutable reference to data in closure
-    class Cursor
+    class Cursor extends module.exports.Cursor
 
       constructor: (@path = []) ->
 
