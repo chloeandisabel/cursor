@@ -5,7 +5,7 @@ Cache = require './cache'
 
 module.exports =
 
-  Cursor: class Cursor
+  Klass: class Klass
 
   create: (inputData, onChange, historySize = 100) ->
     cache = new Cache
@@ -16,7 +16,7 @@ module.exports =
 
 
     # declare cursor class w/ access to mutable reference to data in closure
-    class Cursor extends module.exports.Cursor
+    class Cursor extends module.exports.Klass
 
       constructor: (@path = []) ->
 
